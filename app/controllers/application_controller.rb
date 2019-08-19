@@ -18,12 +18,6 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
   
-  get '/articles/:id/edit' do
-    @article = Article.find(params[:id])
-    
-    erb :edit
-  end
-  
   post '/articles' do
     article = Article.create(params)
     
@@ -34,6 +28,12 @@ class ApplicationController < Sinatra::Base
     @article = Article.find(params[:id])
     
     erb :show
+  end
+  
+  get '/articles/:id/edit' do
+    @article = Article.find(params[:id])
+    
+    erb :edit
   end
   
   patch '/articles/:id' do
