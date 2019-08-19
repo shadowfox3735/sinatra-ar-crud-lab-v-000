@@ -30,10 +30,10 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
   
-  post '/articles' do
+  post "/articles" do
     @article = Article.create(params)
-    
-    redirect to '/articles/#{ @article.id }'
+
+    redirect to "/articles/#{ @article.id }"
   end
   
   patch '/articles/:id' do
